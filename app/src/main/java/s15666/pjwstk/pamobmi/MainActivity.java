@@ -3,11 +3,15 @@ package s15666.pjwstk.pamobmi;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
+
+    private EditText weightField;
+    private EditText heightField;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        this.weightField = findViewById(R.id.weightField);
+        this.heightField = findViewById(R.id.heightField);
     }
 
     @Override
