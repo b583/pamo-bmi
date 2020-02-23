@@ -29,6 +29,16 @@ public class MainActivity extends AppCompatActivity {
 
         this.bmiResultField = findViewById(R.id.bmiResultField);
         this.bmiCategoryField = findViewById(R.id.bmiCategoryField);
+
+        setWatcher();
+    }
+
+    private void setWatcher() {
+        BmiResultUpdater resultUpdater = new BmiResultUpdater(bmiResultField, bmiCategoryField);
+        BmiParamWatcher paramWatcher = new BmiParamWatcher(weightField, heightField, resultUpdater);
+
+        this.weightField.addTextChangedListener(paramWatcher);
+        this.heightField.addTextChangedListener(paramWatcher);
     }
 
     @Override
