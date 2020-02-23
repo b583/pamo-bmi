@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -12,6 +13,9 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText weightField;
     private EditText heightField;
+
+    private TextView bmiResultField;
+    private TextView bmiCategoryField;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
         this.weightField = findViewById(R.id.weightField);
         this.heightField = findViewById(R.id.heightField);
+
+        this.bmiResultField = findViewById(R.id.bmiResultField);
+        this.bmiCategoryField = findViewById(R.id.bmiCategoryField);
     }
 
     @Override

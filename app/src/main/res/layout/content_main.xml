@@ -54,4 +54,24 @@
         app:layout_constraintBottom_toTopOf="@+id/heightField"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/bmiResultField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="99dp"
+        android:layout_marginTop="16dp"
+        android:text="PLACEHOLDER"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heightField" />
+
+    <TextView
+        android:id="@+id/bmiCategoryField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="99dp"
+        android:layout_marginTop="16dp"
+        android:text="PLACEHOLDER2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bmiResultField" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
