@@ -2,6 +2,8 @@ package s15666.pjwstk.pamobmi;
 
 import android.widget.TextView;
 
+import s15666.pjwstk.pamobmi.BmiCategory.NoSuchBmiException;
+
 class BmiResultUpdater {
 
     private TextView bmiResultField;
@@ -16,7 +18,10 @@ class BmiResultUpdater {
         // TODO formatted string
         bmiResultField.setText(String.format("Calculated BMI: %f", bmi));
 
-        // TODO implement
-        bmiCategoryField.setText("TODO");
+        try {
+            bmiCategoryField.setText(BmiCategory.getCategory(bmi).toString());
+        } catch (NoSuchBmiException e) {
+            bmiCategoryField.setText("");
+        }
     }
 }
