@@ -4,12 +4,16 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
+
+    private TextView weight;
+    private TextView height;
 
     private EditText weightField;
     private EditText heightField;
@@ -24,12 +28,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ((TextView) findViewById(R.id.weightText)).setText(
-                getString(R.string.weight, "kg"));
-
-
-        ((TextView) findViewById(R.id.heightText)).setText(
-                getString(R.string.height, "cm"));
+        this.weight = findViewById(R.id.weightText);
+        this.height = findViewById(R.id.heightText);
 
         this.weightField = findViewById(R.id.weightField);
         this.heightField = findViewById(R.id.heightField);
@@ -37,7 +37,36 @@ public class MainActivity extends AppCompatActivity {
         this.bmiResultField = findViewById(R.id.bmiResultField);
         this.bmiCategoryField = findViewById(R.id.bmiCategoryField);
 
+        Switch metricSwitch = findViewById(R.id.metricSwitch);
+        metricSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(isChecked) {
+                metricSwitch.setText(metricSwitch.getTextOn());
+                setNumeral(true);
+            } else {
+                metricSwitch.setText(metricSwitch.getTextOff());
+                setNumeral(false);
+            }
+                });
+
+        metricSwitch.setChecked(true);
+        metricSwitch.setText(metricSwitch.getTextOn());
+
         setWatcher();
+    }
+
+    private void setNumeral(boolean useMetric) {
+        String w;
+        String h;
+        if(useMetric) {
+            w = "kg";
+            h = "cm";
+        } else {
+            w = "?";
+            h = "?";
+        }
+
+        this.weight.setText( getString(R.string.weight, w));
+        this.height.setText( getString(R.string.height, h));
     }
 
     private void setWatcher() {

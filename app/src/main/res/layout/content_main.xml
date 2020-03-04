@@ -73,4 +73,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bmiResultField" />
 
+    <Switch
+        android:id="@+id/metricSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="149dp"
+        android:enabled="true"
+        android:checked="true"
+        android:textOff="@string/use_imperial"
+        android:textOn="@string/use_metric"
+        app:layout_constraintBottom_toTopOf="@+id/weightText"
+        app:layout_constraintEnd_toEndOf="@+id/weightField"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

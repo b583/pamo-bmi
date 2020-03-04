@@ -4,4 +4,6 @@
     <string name="weight">Weight [%s]:</string>
     <string name="height">Height [%s]:</string>
     <string name="bmi">Calculated BMI: %.2f</string>
+    <string name="use_metric">Using metric system</string>
+    <string name="use_imperial">Using imperial system</string>
 </resources>
