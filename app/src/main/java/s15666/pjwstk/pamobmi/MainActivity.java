@@ -24,6 +24,13 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        ((TextView) findViewById(R.id.weightText)).setText(
+                getString(R.string.weight, "kg"));
+
+
+        ((TextView) findViewById(R.id.heightText)).setText(
+                getString(R.string.height, "cm"));
+
         this.weightField = findViewById(R.id.weightField);
         this.heightField = findViewById(R.id.heightField);
 

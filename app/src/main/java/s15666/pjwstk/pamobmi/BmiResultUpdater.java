@@ -16,16 +16,22 @@ class BmiResultUpdater {
         this.context = context;
         this.bmiResultField = bmiResultField;
         this.bmiCategoryField = bmiCategoryField;
+
+        updateResultField((double) 0);
     }
 
     void update(double bmi) {
 
-        bmiResultField.setText(context.getString(R.string.bmi, bmi));
+        updateResultField(bmi);
 
         try {
             bmiCategoryField.setText(BmiCategory.getCategory(bmi).toString());
         } catch (NoSuchBmiException e) {
             bmiCategoryField.setText("");
         }
+    }
+
+    private void updateResultField(double bmi) {
+        bmiResultField.setText(context.getString(R.string.bmi, bmi));
     }
 }
