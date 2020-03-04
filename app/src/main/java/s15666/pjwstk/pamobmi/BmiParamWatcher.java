@@ -4,18 +4,21 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 
+import s15666.pjwstk.pamobmi.calculator.BmiCalculator;
+
 class BmiParamWatcher implements TextWatcher {
 
     private EditText weightField;
     private EditText heightField;
 
-    private BmiCalculator calculator = new BmiCalculator();
     private BmiResultUpdater resultUpdater;
+    private BmiCalculator calculator;
 
-    public BmiParamWatcher(EditText weightField, EditText heightField, BmiResultUpdater resultUpdater) {
+    BmiParamWatcher(EditText weightField, EditText heightField, BmiResultUpdater resultUpdater, BmiCalculator calculator) {
         this.weightField = weightField;
         this.heightField = heightField;
         this.resultUpdater = resultUpdater;
+        this.calculator = calculator;
     }
 
     @Override
@@ -43,4 +46,8 @@ class BmiParamWatcher implements TextWatcher {
         resultUpdater.update(calculator.calculate(weight, height));
     }
 
+    public void setCalculator(BmiCalculator calculator) {
+        this.calculator = calculator;
+        afterTextChanged(null);
+    }
 }
