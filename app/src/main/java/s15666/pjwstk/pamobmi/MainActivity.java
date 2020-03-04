@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setWatcher() {
-        BmiResultUpdater resultUpdater = new BmiResultUpdater(bmiResultField, bmiCategoryField);
+        BmiResultUpdater resultUpdater = new BmiResultUpdater(getApplicationContext(), bmiResultField, bmiCategoryField);
         BmiParamWatcher paramWatcher = new BmiParamWatcher(weightField, heightField, resultUpdater);
 
         this.weightField.addTextChangedListener(paramWatcher);

@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">PAMO BMI</string>
     <string name="action_settings">Settings</string>
+    <string name="weight">Weight [%s]:</string>
+    <string name="height">Height [%s]:</string>
+    <string name="bmi">Calculated BMI: %.2f</string>
 </resources>
