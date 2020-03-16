@@ -34,7 +34,6 @@ public class BmiFragment extends Fragment {
     private TextView bmiResultField;
     private TextView bmiCategoryField;
 
-    private BmiResultUpdater resultUpdater;
     private BmiParamWatcher paramWatcher;
 
     @Nullable
@@ -59,11 +58,18 @@ public class BmiFragment extends Fragment {
     }
 
     private void init() {
-        resultUpdater = new BmiResultUpdater(view, bmiResultField, bmiCategoryField);
+        BmiResultUpdater resultUpdater = new BmiResultUpdater(view, bmiResultField, bmiCategoryField);
         paramWatcher = new BmiParamWatcher(model, weightField, heightField, resultUpdater, new MetricBmiCalculator());
 
         weightField.addTextChangedListener(paramWatcher);
         heightField.addTextChangedListener(paramWatcher);
+
+        Boolean isMetric = model.isMetric().getValue();
+        if(isMetric == null || !isMetric) {
+            metricSwitch.setChecked(false);
+        } else {
+            metricSwitch.setChecked(true);
+        }
 
         metricSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if(isChecked) {
