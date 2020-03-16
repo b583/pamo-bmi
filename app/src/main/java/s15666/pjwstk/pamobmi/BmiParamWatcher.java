@@ -4,9 +4,14 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 
-import s15666.pjwstk.pamobmi.calculator.BmiCalculator;
+import java.util.Locale;
+
+import s15666.pjwstk.pamobmi.bmi.BmiViewModel;
+import s15666.pjwstk.pamobmi.bmi.calculator.BmiCalculator;
 
 public class BmiParamWatcher implements TextWatcher {
+
+    private BmiViewModel model;
 
     private EditText weightField;
     private EditText heightField;
@@ -14,11 +19,15 @@ public class BmiParamWatcher implements TextWatcher {
     private BmiResultUpdater resultUpdater;
     private BmiCalculator calculator;
 
-    public BmiParamWatcher(EditText weightField, EditText heightField, BmiResultUpdater resultUpdater, BmiCalculator calculator) {
+    public BmiParamWatcher(BmiViewModel model, EditText weightField, EditText heightField,
+                           BmiResultUpdater resultUpdater, BmiCalculator calculator) {
+        this.model = model;
         this.weightField = weightField;
         this.heightField = heightField;
         this.resultUpdater = resultUpdater;
         this.calculator = calculator;
+
+        loadModelData();
     }
 
     @Override
@@ -31,6 +40,20 @@ public class BmiParamWatcher implements TextWatcher {
         // not implemented
     }
 
+    private void loadModelData() {
+        Double weight = model.getWeight().getValue();
+        Double height = model.getHeight().getValue();
+
+        // TODO get currently used locale instead of hardcoding US
+        if(weight != null) {
+            weightField.setText(String.format(Locale.US, "%.2f", model.getWeight().getValue()));
+        }
+
+        if(height != null) {
+            heightField.setText(String.format(Locale.US, "%.2f", model.getHeight().getValue()));
+        }
+    }
+
     @Override
     public void afterTextChanged(Editable s) {
         double weight;
@@ -39,6 +62,9 @@ public class BmiParamWatcher implements TextWatcher {
         try {
             weight = Double.valueOf(weightField.getText().toString());
             height = Double.valueOf(heightField.getText().toString());
+
+            model.setWeight(weight);
+            model.setHeight(height);
         } catch (NumberFormatException e) {
             return;
         }

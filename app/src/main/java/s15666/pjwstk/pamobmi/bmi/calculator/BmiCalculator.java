@@ -1,4 +1,4 @@
-package s15666.pjwstk.pamobmi.calculator;
+package s15666.pjwstk.pamobmi.bmi.calculator;
 
 public interface BmiCalculator {
 

@@ -11,17 +11,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import s15666.pjwstk.pamobmi.BmiParamWatcher;
 import s15666.pjwstk.pamobmi.BmiResultUpdater;
 import s15666.pjwstk.pamobmi.R;
-import s15666.pjwstk.pamobmi.calculator.ImperialBmiCalculator;
-import s15666.pjwstk.pamobmi.calculator.MetricBmiCalculator;
+import s15666.pjwstk.pamobmi.bmi.BmiViewModel;
+import s15666.pjwstk.pamobmi.bmi.calculator.ImperialBmiCalculator;
+import s15666.pjwstk.pamobmi.bmi.calculator.MetricBmiCalculator;
 
 public class BmiFragment extends Fragment {
 
     private View view;
-    
+    private BmiViewModel model;
+
     private TextView weight;
     private TextView height;
 
@@ -40,6 +43,7 @@ public class BmiFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_bmi, container, false);
+        model = new ViewModelProvider(this).get(BmiViewModel.class);
 
         weight = view.findViewById(R.id.weightText);
         height = view.findViewById(R.id.heightText);
@@ -58,7 +62,7 @@ public class BmiFragment extends Fragment {
 
     private void init() {
         resultUpdater = new BmiResultUpdater(view, bmiResultField, bmiCategoryField);
-        paramWatcher = new BmiParamWatcher(weightField, heightField, resultUpdater, new MetricBmiCalculator());
+        paramWatcher = new BmiParamWatcher(model, weightField, heightField, resultUpdater, new MetricBmiCalculator());
 
         weightField.addTextChangedListener(paramWatcher);
         heightField.addTextChangedListener(paramWatcher);
@@ -84,10 +88,12 @@ public class BmiFragment extends Fragment {
         if(useMetric) {
             w = "kg";
             h = "cm";
+            model.setIsMetric(true);
             paramWatcher.setCalculator(new MetricBmiCalculator());
         } else {
             w = "pound";
             h = "inch";
+            model.setIsMetric(false);
             paramWatcher.setCalculator(new ImperialBmiCalculator());
         }
 
