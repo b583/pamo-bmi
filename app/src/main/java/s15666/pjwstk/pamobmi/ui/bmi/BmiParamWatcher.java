@@ -1,4 +1,4 @@
-package s15666.pjwstk.pamobmi;
+package s15666.pjwstk.pamobmi.ui.bmi;
 
 import android.text.Editable;
 import android.text.TextWatcher;

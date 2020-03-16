@@ -13,8 +13,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import s15666.pjwstk.pamobmi.BmiParamWatcher;
-import s15666.pjwstk.pamobmi.BmiResultUpdater;
 import s15666.pjwstk.pamobmi.R;
 import s15666.pjwstk.pamobmi.bmi.BmiViewModel;
 import s15666.pjwstk.pamobmi.bmi.calculator.ImperialBmiCalculator;

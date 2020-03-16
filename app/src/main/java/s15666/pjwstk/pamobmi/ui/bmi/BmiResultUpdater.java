@@ -1,9 +1,10 @@
-package s15666.pjwstk.pamobmi;
+package s15666.pjwstk.pamobmi.ui.bmi;
 
 import android.view.View;
 import android.widget.TextView;
 
-import s15666.pjwstk.pamobmi.BmiCategory.NoSuchBmiException;
+import s15666.pjwstk.pamobmi.R;
+import s15666.pjwstk.pamobmi.ui.bmi.BmiCategory.NoSuchBmiException;
 
 public class BmiResultUpdater {
 

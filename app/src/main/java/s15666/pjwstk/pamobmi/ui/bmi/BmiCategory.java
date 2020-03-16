@@ -1,4 +1,4 @@
-package s15666.pjwstk.pamobmi;
+package s15666.pjwstk.pamobmi.ui.bmi;
 
 enum BmiCategory {
 
