@@ -9,7 +9,7 @@ import java.util.Locale;
 import s15666.pjwstk.pamobmi.bmi.BmiViewModel;
 import s15666.pjwstk.pamobmi.bmi.calculator.BmiCalculator;
 
-public class BmiParamWatcher implements TextWatcher {
+class BmiParamWatcher implements TextWatcher {
 
     private BmiViewModel model;
 
@@ -19,8 +19,8 @@ public class BmiParamWatcher implements TextWatcher {
     private BmiResultUpdater resultUpdater;
     private BmiCalculator calculator;
 
-    public BmiParamWatcher(BmiViewModel model, EditText weightField, EditText heightField,
-                           BmiResultUpdater resultUpdater, BmiCalculator calculator) {
+    BmiParamWatcher(BmiViewModel model, EditText weightField, EditText heightField,
+                    BmiResultUpdater resultUpdater, BmiCalculator calculator) {
         this.model = model;
         this.weightField = weightField;
         this.heightField = heightField;
@@ -72,7 +72,7 @@ public class BmiParamWatcher implements TextWatcher {
         resultUpdater.update(calculator.calculate(weight, height));
     }
 
-    public void setCalculator(BmiCalculator calculator) {
+    void setCalculator(BmiCalculator calculator) {
         this.calculator = calculator;
         afterTextChanged(null);
     }

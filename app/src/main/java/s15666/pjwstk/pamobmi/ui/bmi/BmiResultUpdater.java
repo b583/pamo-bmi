@@ -6,14 +6,14 @@ import android.widget.TextView;
 import s15666.pjwstk.pamobmi.R;
 import s15666.pjwstk.pamobmi.ui.bmi.BmiCategory.NoSuchBmiException;
 
-public class BmiResultUpdater {
+class BmiResultUpdater {
 
     private View view;
 
     private TextView bmiResultField;
     private TextView bmiCategoryField;
 
-    public BmiResultUpdater(View view, TextView bmiResultField, TextView bmiCategoryField) {
+    BmiResultUpdater(View view, TextView bmiResultField, TextView bmiCategoryField) {
         this.view = view;
         this.bmiResultField = bmiResultField;
         this.bmiCategoryField = bmiCategoryField;
