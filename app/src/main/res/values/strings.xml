@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">PAMO BMI</string>
+
+    <string name="welcome_title">Welcome to PAMO BMI!</string>
+    <string name="welcome_subtitle">Please fill those fields before continuing:</string>
+    <string name="welcome_done_button">Done</string>
+
     <string name="action_settings">Settings</string>
     <string name="weight">Weight [%s]:</string>
     <string name="height">Height [%s]:</string>

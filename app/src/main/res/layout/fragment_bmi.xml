@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="99dp"
-        android:layout_marginTop="256dp"
+        android:layout_marginTop="128dp"
         android:layout_marginEnd="99dp"
         android:autofillHints=""
         android:ems="10"
@@ -77,13 +77,12 @@
         android:id="@+id/metricSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="149dp"
-        android:enabled="true"
+        android:layout_marginBottom="16dp"
         android:checked="true"
+        android:enabled="true"
         android:textOff="@string/use_imperial"
         android:textOn="@string/use_metric"
         app:layout_constraintBottom_toTopOf="@+id/weightText"
-        app:layout_constraintEnd_toEndOf="@+id/weightField"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/weightField" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
