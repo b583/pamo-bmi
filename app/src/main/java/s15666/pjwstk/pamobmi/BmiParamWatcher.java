@@ -6,7 +6,7 @@ import android.widget.EditText;
 
 import s15666.pjwstk.pamobmi.calculator.BmiCalculator;
 
-class BmiParamWatcher implements TextWatcher {
+public class BmiParamWatcher implements TextWatcher {
 
     private EditText weightField;
     private EditText heightField;
@@ -14,7 +14,7 @@ class BmiParamWatcher implements TextWatcher {
     private BmiResultUpdater resultUpdater;
     private BmiCalculator calculator;
 
-    BmiParamWatcher(EditText weightField, EditText heightField, BmiResultUpdater resultUpdater, BmiCalculator calculator) {
+    public BmiParamWatcher(EditText weightField, EditText heightField, BmiResultUpdater resultUpdater, BmiCalculator calculator) {
         this.weightField = weightField;
         this.heightField = heightField;
         this.resultUpdater = resultUpdater;

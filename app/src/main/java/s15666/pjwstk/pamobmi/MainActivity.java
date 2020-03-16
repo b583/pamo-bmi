@@ -3,29 +3,11 @@ package s15666.pjwstk.pamobmi;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
-import android.widget.Switch;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import s15666.pjwstk.pamobmi.calculator.ImperialBmiCalculator;
-import s15666.pjwstk.pamobmi.calculator.MetricBmiCalculator;
-
 public class MainActivity extends AppCompatActivity {
-
-    private TextView weight;
-    private TextView height;
-
-    private EditText weightField;
-    private EditText heightField;
-
-    private TextView bmiResultField;
-    private TextView bmiCategoryField;
-
-    private BmiResultUpdater resultUpdater;
-    private BmiParamWatcher paramWatcher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,53 +15,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        this.weight = findViewById(R.id.weightText);
-        this.height = findViewById(R.id.heightText);
-
-        this.weightField = findViewById(R.id.weightField);
-        this.heightField = findViewById(R.id.heightField);
-
-        this.bmiResultField = findViewById(R.id.bmiResultField);
-        this.bmiCategoryField = findViewById(R.id.bmiCategoryField);
-
-        resultUpdater = new BmiResultUpdater(getApplicationContext(), bmiResultField, bmiCategoryField);
-        paramWatcher = new BmiParamWatcher(weightField, heightField, resultUpdater, new MetricBmiCalculator());
-
-        this.weightField.addTextChangedListener(paramWatcher);
-        this.heightField.addTextChangedListener(paramWatcher);
-
-        Switch metricSwitch = findViewById(R.id.metricSwitch);
-        metricSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if(isChecked) {
-                metricSwitch.setText(metricSwitch.getTextOn());
-                setNumeral(true);
-            } else {
-                metricSwitch.setText(metricSwitch.getTextOff());
-                setNumeral(false);
-            }
-        });
-
-        setNumeral(true);
-        metricSwitch.setChecked(true);
-        metricSwitch.setText(metricSwitch.getTextOn());
-    }
-
-    private void setNumeral(boolean useMetric) {
-        String w;
-        String h;
-        if(useMetric) {
-            w = "kg";
-            h = "cm";
-            paramWatcher.setCalculator(new MetricBmiCalculator());
-        } else {
-            w = "pound";
-            h = "inch";
-            paramWatcher.setCalculator(new ImperialBmiCalculator());
-        }
-
-        this.weight.setText( getString(R.string.weight, w));
-        this.height.setText( getString(R.string.height, h));
     }
 
     @Override

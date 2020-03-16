@@ -1,19 +1,19 @@
 package s15666.pjwstk.pamobmi;
 
-import android.content.Context;
+import android.view.View;
 import android.widget.TextView;
 
 import s15666.pjwstk.pamobmi.BmiCategory.NoSuchBmiException;
 
-class BmiResultUpdater {
+public class BmiResultUpdater {
 
-    private Context context;
+    private View view;
 
     private TextView bmiResultField;
     private TextView bmiCategoryField;
 
-    BmiResultUpdater(Context context, TextView bmiResultField, TextView bmiCategoryField) {
-        this.context = context;
+    public BmiResultUpdater(View view, TextView bmiResultField, TextView bmiCategoryField) {
+        this.view = view;
         this.bmiResultField = bmiResultField;
         this.bmiCategoryField = bmiCategoryField;
 
@@ -32,6 +32,6 @@ class BmiResultUpdater {
     }
 
     private void updateResultField(double bmi) {
-        bmiResultField.setText(context.getString(R.string.bmi, bmi));
+        bmiResultField.setText(view.getContext().getString(R.string.bmi, bmi));
     }
 }
