@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/welcome_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:text="@string/welcome_title"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/welcome_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_subtitle"
+        app:layout_constraintStart_toStartOf="@+id/welcome_title"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_title" />
+
+    <fragment
+        android:id="@+id/welcome_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:defaultNavHost="true"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_subtitle"
+        app:navGraph="@navigation/nav_welcome"
+        tools:layout="@layout/fragment_bmi" />
+
+    <Button
+        android:id="@+id/welcome_done_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginEnd="140dp"
+        android:text="@string/welcome_done_button"
+        app:layout_constraintEnd_toEndOf="@+id/welcome_fragment"
+        app:layout_constraintStart_toStartOf="@+id/welcome_fragment"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_fragment" />
+</androidx.constraintlayout.widget.ConstraintLayout>

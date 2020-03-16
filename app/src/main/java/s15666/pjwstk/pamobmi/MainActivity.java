@@ -3,18 +3,11 @@ package s15666.pjwstk.pamobmi;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.lifecycle.ViewModelProvider;
-
-import s15666.pjwstk.pamobmi.bmi.BmiViewModel;
 
 public class MainActivity extends AppCompatActivity {
-
-    private BmiViewModel model;
-    private Button doneButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,17 +15,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        model = new ViewModelProvider(this).get(BmiViewModel.class);
-        doneButton = findViewById(R.id.welcome_done_button);
-        init();
     }
 
-    private void init() {
-        Boolean isValid = model.isValid().getValue();
-        doneButton.setEnabled(isValid == null ? false : isValid);
-        model.isValid().observe(this, aBoolean -> doneButton.setEnabled(aBoolean));
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

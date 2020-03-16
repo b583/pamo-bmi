@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
-    app:startDestination="@id/bmiFragment">
-
+    app:startDestination="@id/welcomeFragment">
     <fragment
-        android:id="@+id/bmiFragment"
-        android:name="s15666.pjwstk.pamobmi.ui.bmi.BmiFragment"
-        android:label="BmiFragment" />
+        android:id="@+id/welcomeFragment"
+        android:name="s15666.pjwstk.pamobmi.ui.welcome.WelcomeFragment"
+        android:label="WelcomeFragment" />
 </navigation>

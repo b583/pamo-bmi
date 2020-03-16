@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_welcome"
+    app:startDestination="@id/bmiFragment">
+
+    <fragment
+        android:id="@+id/bmiFragment"
+        android:name="s15666.pjwstk.pamobmi.ui.bmi.BmiFragment"
+        android:label="BmiFragment" />
+</navigation>
