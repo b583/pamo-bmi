@@ -40,7 +40,7 @@ public class BmiFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_bmi, container, false);
-        model = new ViewModelProvider(this).get(BmiViewModel.class);
+        model = new ViewModelProvider(requireActivity()).get(BmiViewModel.class);
 
         weight = view.findViewById(R.id.weightText);
         height = view.findViewById(R.id.heightText);
