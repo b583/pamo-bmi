@@ -29,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init() {
+        Boolean isValid = model.isValid().getValue();
+        doneButton.setEnabled(isValid == null ? false : isValid);
+        model.isValid().observe(this, aBoolean -> doneButton.setEnabled(aBoolean));
     }
 
     @Override

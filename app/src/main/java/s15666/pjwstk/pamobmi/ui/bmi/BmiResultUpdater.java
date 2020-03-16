@@ -32,6 +32,11 @@ class BmiResultUpdater {
         }
     }
 
+    void clear() {
+        updateResultField(0);
+        bmiCategoryField.setText("");
+    }
+
     private void updateResultField(double bmi) {
         bmiResultField.setText(view.getContext().getString(R.string.bmi, bmi));
     }

@@ -56,20 +56,28 @@ class BmiParamWatcher implements TextWatcher {
 
     @Override
     public void afterTextChanged(Editable s) {
-        double weight;
-        double height;
+        Double weight = null;
+        Double height = null;
 
         try {
             weight = Double.valueOf(weightField.getText().toString());
-            height = Double.valueOf(heightField.getText().toString());
-
             model.setWeight(weight);
-            model.setHeight(height);
         } catch (NumberFormatException e) {
-            return;
+            model.setWeight(null);
         }
 
-        resultUpdater.update(calculator.calculate(weight, height));
+        try {
+            height = Double.valueOf(heightField.getText().toString());
+            model.setHeight(height);
+        } catch (NumberFormatException e) {
+            model.setHeight(null);
+        }
+
+        if(weight == null || height == null) {
+            resultUpdater.clear();
+        } else {
+            resultUpdater.update(calculator.calculate(weight, height));
+        }
     }
 
     void setCalculator(BmiCalculator calculator) {
