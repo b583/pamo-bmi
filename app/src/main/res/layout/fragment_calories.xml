@@ -26,10 +26,11 @@
         android:layout_marginBottom="16dp"
         android:checked="true"
         android:enabled="true"
+        android:textOff="@string/calories_switch_female"
+        android:textOn="@string/calories_switch_male"
         app:layout_constraintBottom_toTopOf="@+id/calories_age"
         app:layout_constraintEnd_toEndOf="@+id/calories_age_field"
-        android:textOff="@string/calories_switch_female"
-        android:textOn="@string/calories_switch_male"/>
+        tools:checked="true" />
 
     <SeekBar
         android:id="@+id/calories_energy_seekbar"

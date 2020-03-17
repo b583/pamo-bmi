@@ -13,7 +13,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.util.Objects;
+
 import s15666.pjwstk.pamobmi.R;
+import s15666.pjwstk.pamobmi.benedictharris.Gender;
 
 public class CaloriesFragment extends Fragment {
 
@@ -43,5 +46,19 @@ public class CaloriesFragment extends Fragment {
     }
 
     private void init() {
+        initGenderSwitch();
+    }
+
+    private void initGenderSwitch() {
+        genderSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            genderSwitch.setText(
+                    isChecked ? genderSwitch.getTextOn(): genderSwitch.getTextOff());
+            model.setGender(isChecked ? Gender.MALE : Gender.FEMALE);
+        });
+
+        boolean isMale = Objects.equals(model.getGender().getValue(), Gender.MALE);
+        genderSwitch.setChecked(isMale);
+        genderSwitch.setText(
+                isMale ? genderSwitch.getTextOn(): genderSwitch.getTextOff());
     }
 }
