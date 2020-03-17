@@ -5,13 +5,13 @@ import androidx.lifecycle.ViewModel;
 
 import s15666.pjwstk.pamobmi.benedictharris.Gender;
 
-class CaloriesViewModel extends ViewModel {
+public class CaloriesViewModel extends ViewModel {
 
     private final MutableLiveData<Gender> gender = new MutableLiveData<>();
     private final MutableLiveData<Integer> age = new MutableLiveData<>();
     private final MutableLiveData<Boolean> isValid = new MutableLiveData<>();
 
-    CaloriesViewModel() {
+    public CaloriesViewModel() {
         gender.setValue(Gender.MALE);
         isValid.setValue(Boolean.FALSE);
     }
