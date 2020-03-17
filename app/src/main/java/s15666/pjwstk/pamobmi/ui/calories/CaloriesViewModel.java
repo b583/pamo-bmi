@@ -3,6 +3,8 @@ package s15666.pjwstk.pamobmi.ui.calories;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import s15666.pjwstk.pamobmi.benedictharris.Gender;
+
 class CaloriesViewModel extends ViewModel {
 
     private final MutableLiveData<Gender> gender = new MutableLiveData<>();

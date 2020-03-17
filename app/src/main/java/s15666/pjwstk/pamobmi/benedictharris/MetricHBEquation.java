@@ -1,6 +1,6 @@
-package s15666.pjwstk.pamobmi.ui.calories;
+package s15666.pjwstk.pamobmi.benedictharris;
 
-final class MetricHBEquation extends HarrisBenedictEquation {
+public final class MetricHBEquation extends HarrisBenedictEquation {
 
     @Override
     double getGenderBaseValue(Gender gender) {

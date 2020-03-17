@@ -1,6 +1,6 @@
-package s15666.pjwstk.pamobmi.ui.calories;
+package s15666.pjwstk.pamobmi.benedictharris;
 
-abstract class HarrisBenedictEquation {
+public abstract class HarrisBenedictEquation {
 
     final double calculate(Gender gender, double weight, double height, int age) {
         return getGenderBaseValue(gender) + weight * getWeightMultiplier(gender)
