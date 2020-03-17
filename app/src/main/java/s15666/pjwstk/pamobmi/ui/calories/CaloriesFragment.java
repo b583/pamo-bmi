@@ -1,5 +1,6 @@
 package s15666.pjwstk.pamobmi.ui.calories;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -14,33 +15,51 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStoreOwner;
 
 import java.util.Objects;
 
 import s15666.pjwstk.pamobmi.R;
 import s15666.pjwstk.pamobmi.benedictharris.EnergyExpenditure;
 import s15666.pjwstk.pamobmi.benedictharris.Gender;
+import s15666.pjwstk.pamobmi.benedictharris.HarrisBenedictEquation;
+import s15666.pjwstk.pamobmi.benedictharris.ImperialHBEquation;
+import s15666.pjwstk.pamobmi.benedictharris.MetricHBEquation;
+import s15666.pjwstk.pamobmi.bmi.BmiViewModel;
 
 public class CaloriesFragment extends Fragment {
 
     private View view;
-    private CaloriesViewModel model;
+
+    private CaloriesViewModel caloriesViewModel;
+    private BmiViewModel bmiViewModel;
+    private HarrisBenedictEquation harrisBenedictEquation;
 
     private Switch genderSwitch;
     private EditText ageField;
 
-    private SeekBar energyUsageSeekbar;
+    private SeekBar energyUsageSeekBar;
     private TextView energyUsageDescription;
     private TextView result;
 
+    @SuppressWarnings("ConstantConditions")
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_calories, container, false);
-        model = new ViewModelProvider(requireActivity()).get(CaloriesViewModel.class);
+        Activity activity = requireActivity();
+
+        caloriesViewModel = new ViewModelProvider((ViewModelStoreOwner) activity).get(CaloriesViewModel.class);
+        bmiViewModel = new ViewModelProvider((ViewModelStoreOwner) activity).get(BmiViewModel.class);
+        if(bmiViewModel.isMetric().getValue() != null && bmiViewModel.isMetric().getValue()) {
+            harrisBenedictEquation = new MetricHBEquation();
+        } else {
+            harrisBenedictEquation = new ImperialHBEquation();
+        }
+
 
         genderSwitch = view.findViewById(R.id.calories_gender_switch);
         ageField = view.findViewById(R.id.calories_age_field);
 
-        energyUsageSeekbar = view.findViewById(R.id.calories_energy_seekbar);
+        energyUsageSeekBar = view.findViewById(R.id.calories_energy_seekbar);
         energyUsageDescription = view.findViewById(R.id.calories_energy_description);
         result = view.findViewById(R.id.calories_result);
 
@@ -58,10 +77,11 @@ public class CaloriesFragment extends Fragment {
         genderSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             genderSwitch.setText(
                     isChecked ? genderSwitch.getTextOn(): genderSwitch.getTextOff());
-            model.setGender(isChecked ? Gender.MALE : Gender.FEMALE);
+            caloriesViewModel.setGender(isChecked ? Gender.MALE : Gender.FEMALE);
+            updateResult();
         });
 
-        boolean isMale = Objects.equals(model.getGender().getValue(), Gender.MALE);
+        boolean isMale = Objects.equals(caloriesViewModel.getGender().getValue(), Gender.MALE);
         genderSwitch.setChecked(isMale);
         genderSwitch.setText(
                 isMale ? genderSwitch.getTextOn(): genderSwitch.getTextOff());
@@ -83,25 +103,18 @@ public class CaloriesFragment extends Fragment {
                 } catch (NumberFormatException e) {
                     // TODO clear calories result
                 } finally {
-                    model.setAge(age);
+                    caloriesViewModel.setAge(age);
+                    updateResult();
                 }
             }
         });
     }
 
     private void initEnergyUsageSeekBar() {
-        energyUsageSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        energyUsageSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                EnergyExpenditure e = null;
-                try {
-                    e = EnergyExpenditure.fromNumber(progress);
-                    model.setEnergyExpenditure(e);
-                } catch (EnergyExpenditure.NoSuchEnergyExpenditureException ex) {
-                    // TODO clear calories result
-                } finally {
-                    model.setEnergyExpenditure(e);
-                }
+                onSeekBarChanged(progress);
             }
 
             @Override
@@ -110,6 +123,41 @@ public class CaloriesFragment extends Fragment {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) { }
         });
+    }
+
+    private void onSeekBarChanged(int progress) {
+        EnergyExpenditure e = null;
+        try {
+            e = EnergyExpenditure.fromNumber(progress);
+            updateEnergyUsageDescriptor(e.toString());
+        } catch (EnergyExpenditure.NoSuchEnergyExpenditureException ex) {
+            // TODO clear calories result
+        } finally {
+            caloriesViewModel.setEnergyExpenditure(e);
+            updateResult();
+        }
+    }
+
+    private void updateEnergyUsageDescriptor(String description) {
+        energyUsageDescription.setText(description);
+    }
+
+    private void updateResult() {
+        if(caloriesViewModel.isValid() == null || bmiViewModel.isValid() == null) {
+            return;
+        }
+
+        if(caloriesViewModel.isValid().getValue() && bmiViewModel.isValid().getValue()) {
+
+            int calories = (int) harrisBenedictEquation.calculateEnergyExpenditure(
+                    caloriesViewModel.getGender().getValue(),
+                    caloriesViewModel.getEnergyExpenditure().getValue(),
+                    bmiViewModel.getWeight().getValue(),
+                    bmiViewModel.getHeight().getValue(),
+                    caloriesViewModel.getAge().getValue());
+
+            result.setText(view.getContext().getString(R.string.calories_result, calories));
+        }
     }
 
 }

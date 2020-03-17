@@ -2,7 +2,7 @@ package s15666.pjwstk.pamobmi.benedictharris;
 
 public abstract class HarrisBenedictEquation {
 
-    final double calculateEnergyExpenditure(Gender gender, EnergyExpenditure ee, double weight, double height, int age) {
+    public final double calculateEnergyExpenditure(Gender gender, EnergyExpenditure ee, double weight, double height, int age) {
         return ee.getMultiplier() * ( getGenderBaseValue(gender) + weight * getWeightMultiplier(gender)
                 + height * getHeightMultiplier(gender) - age * getAgeMultiplier(gender));
     }

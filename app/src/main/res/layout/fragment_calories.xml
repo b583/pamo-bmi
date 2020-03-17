@@ -30,7 +30,7 @@
         android:textOn="@string/calories_switch_male"
         app:layout_constraintBottom_toTopOf="@+id/calories_age"
         app:layout_constraintEnd_toEndOf="@+id/calories_age_field"
-        tools:checked="true" />
+        tools:checked="false" />
 
     <SeekBar
         android:id="@+id/calories_energy_seekbar"
@@ -78,7 +78,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/calories_result"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="@+id/calories_result_title"
         app:layout_constraintTop_toBottomOf="@+id/calories_result_title" />
@@ -88,7 +87,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/placeholder"
         app:layout_constraintStart_toStartOf="@+id/calories_energy_seekbar"
         app:layout_constraintTop_toBottomOf="@+id/calories_energy_seekbar" />
 
