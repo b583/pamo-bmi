@@ -5,5 +5,13 @@
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="s15666.pjwstk.pamobmi.ui.welcome.WelcomeFragment"
-        android:label="WelcomeFragment" />
+        android:label="WelcomeFragment" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_bottomNavFragment"
+            app:destination="@id/bottomNavFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bottomNavFragment"
+        android:name="s15666.pjwstk.pamobmi.ui.bottomnav.BottomNavFragment"
+        android:label="BottomNavFragment" />
 </navigation>

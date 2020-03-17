@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="99dp"
-        android:text="@string/weight"
+        android:text="@string/bmi_weight"
         app:layout_constraintBottom_toTopOf="@+id/weightField"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="99dp"
-        android:text="@string/height"
+        android:text="@string/bmi_height"
         app:layout_constraintBottom_toTopOf="@+id/heightField"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="99dp"
         android:layout_marginTop="16dp"
-        android:text="@string/bmi"
+        android:text="@string/bmi_value"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/heightField" />
 
@@ -80,8 +80,8 @@
         android:layout_marginBottom="16dp"
         android:checked="true"
         android:enabled="true"
-        android:textOff="@string/use_imperial"
-        android:textOn="@string/use_metric"
+        android:textOff="@string/bmi_use_imperial"
+        android:textOn="@string/bmi_use_metric"
         app:layout_constraintBottom_toTopOf="@+id/weightText"
         app:layout_constraintEnd_toEndOf="@+id/weightField" />
 

@@ -6,9 +6,15 @@
     <string name="welcome_done_button">Done</string>
 
     <string name="action_settings">Settings</string>
-    <string name="weight">Weight [%s]:</string>
-    <string name="height">Height [%s]:</string>
-    <string name="bmi">Calculated BMI: %.2f</string>
-    <string name="use_metric">Using metric system</string>
-    <string name="use_imperial">Using imperial system</string>
+
+    <string name="bmi_title">BMI</string>
+    <string name="bmi_weight">Weight [%s]:</string>
+    <string name="bmi_height">Height [%s]:</string>
+    <string name="bmi_value">Calculated BMI: %.2f</string>
+    <string name="bmi_use_metric">Using metric system</string>
+    <string name="bmi_use_imperial">Using imperial system</string>
+
+    <string name="title_activity_temp_bottom_nav">TempBottomNavActivity</string>
+    <string name="calories_title">Calories</string>
+    <string name="food_title">Food</string>
 </resources>

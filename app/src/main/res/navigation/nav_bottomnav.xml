@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_calories">
+
+    <fragment
+        android:id="@+id/navigation_bmi"
+        android:name="s15666.pjwstk.pamobmi.ui.bmi.BmiFragment"
+        android:label="@string/bmi_title"
+        tools:layout="@layout/fragment_bmi" />
+
+    <fragment
+        android:id="@+id/navigation_calories"
+        android:name="s15666.pjwstk.pamobmi.ui.calories.CaloriesFragment"
+        android:label="@string/calories_title"
+        tools:layout="@layout/fragment_calories" />
+
+    <fragment
+        android:id="@+id/navigation_food"
+        android:name="s15666.pjwstk.pamobmi.ui.food.FoodFragment"
+        android:label="@string/food_title"
+        tools:layout="@layout/fragment_food" />
+</navigation>

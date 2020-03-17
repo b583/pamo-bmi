@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
 
 import s15666.pjwstk.pamobmi.R;
 import s15666.pjwstk.pamobmi.bmi.BmiViewModel;
@@ -33,7 +34,15 @@ public class WelcomeFragment extends Fragment {
     private void init() {
         Boolean isValid = model.isValid().getValue();
         doneButton.setEnabled(isValid == null ? false : isValid);
+        doneButton.setOnClickListener((view) -> {
+            goToNextPage();
+        });
+
         model.isValid().observe(this, aBoolean -> doneButton.setEnabled(aBoolean));
+    }
+
+    private void goToNextPage() {
+        NavHostFragment.findNavController(this).navigate(R.id.action_welcomeFragment_to_bottomNavFragment);
     }
 
 }

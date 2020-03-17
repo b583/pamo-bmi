@@ -101,8 +101,8 @@ public class BmiFragment extends Fragment {
             paramWatcher.setCalculator(new ImperialBmiCalculator());
         }
 
-        this.weight.setText( getString(R.string.weight, w));
-        this.height.setText( getString(R.string.height, h));
+        this.weight.setText( getString(R.string.bmi_weight, w));
+        this.height.setText( getString(R.string.bmi_height, h));
     }
 
 }

@@ -38,6 +38,6 @@ class BmiResultUpdater {
     }
 
     private void updateResultField(double bmi) {
-        bmiResultField.setText(view.getContext().getString(R.string.bmi, bmi));
+        bmiResultField.setText(view.getContext().getString(R.string.bmi_value, bmi));
     }
 }
