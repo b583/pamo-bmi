@@ -64,6 +64,10 @@ public class BmiFragment extends Fragment {
         weightField.addTextChangedListener(paramWatcher);
         heightField.addTextChangedListener(paramWatcher);
 
+        initMetricSwitch();
+    }
+
+    private void initMetricSwitch() {
         metricSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if(isChecked) {
                 metricSwitch.setText(metricSwitch.getTextOn());
