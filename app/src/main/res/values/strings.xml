@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">PAMO BMI</string>
+    <string name="placeholder">PLACEHOLDER</string>
 
     <string name="welcome_title">Welcome to PAMO BMI!</string>
     <string name="welcome_subtitle">Please fill those fields before continuing:</string>
@@ -14,7 +15,14 @@
     <string name="bmi_use_metric">Using metric system</string>
     <string name="bmi_use_imperial">Using imperial system</string>
 
-    <string name="title_activity_temp_bottom_nav">TempBottomNavActivity</string>
     <string name="calories_title">Calories</string>
+    <string name="calories_switch_male">Male</string>
+    <string name="calories_switch_female">Female</string>
+    <string name="calories_age">Age</string>
+    <string name="calories_energy">Energy Expenditure</string>
+    <string name="calories_result_title">Calculated daily energy usage:</string>
+    <string name="calories_result">%d kilo calories</string>
+
+    <string name="title_activity_temp_bottom_nav">TempBottomNavActivity</string>
     <string name="food_title">Food</string>
 </resources>

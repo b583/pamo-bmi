@@ -5,23 +5,90 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/text_dashboard"
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/calories_age_field"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+        android:layout_marginStart="99dp"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="99dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:inputType="numberSigned"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
+    <Switch
+        android:id="@+id/calories_gender_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Calories" />
+        android:layout_marginBottom="16dp"
+        android:checked="true"
+        android:enabled="true"
+        app:layout_constraintBottom_toTopOf="@+id/calories_age"
+        app:layout_constraintEnd_toEndOf="@+id/calories_age_field"
+        android:textOff="@string/calories_switch_female"
+        android:textOn="@string/calories_switch_male"/>
+
+    <SeekBar
+        android:id="@+id/calories_energy_seekbar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="214dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="99dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="99dp"
+        android:max="2"
+        android:progress="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calories_age_field" />
+
+    <TextView
+        android:id="@+id/calories_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="99dp"
+        android:text="@string/calories_age"
+        app:layout_constraintBottom_toTopOf="@+id/calories_age_field"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/calores_energy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calories_energy"
+        app:layout_constraintBottom_toTopOf="@+id/calories_energy_seekbar"
+        app:layout_constraintStart_toStartOf="@+id/calories_energy_seekbar" />
+
+    <TextView
+        android:id="@+id/calories_result_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/calories_result_title"
+        app:layout_constraintStart_toStartOf="@+id/calories_energy_description"
+        app:layout_constraintTop_toBottomOf="@+id/calories_energy_description" />
+
+    <TextView
+        android:id="@+id/calories_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/calories_result"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="@+id/calories_result_title"
+        app:layout_constraintTop_toBottomOf="@+id/calories_result_title" />
+
+    <TextView
+        android:id="@+id/calories_energy_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/placeholder"
+        app:layout_constraintStart_toStartOf="@+id/calories_energy_seekbar"
+        app:layout_constraintTop_toBottomOf="@+id/calories_energy_seekbar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
