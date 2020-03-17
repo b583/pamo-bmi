@@ -18,6 +18,7 @@ import androidx.lifecycle.ViewModelProvider;
 import java.util.Objects;
 
 import s15666.pjwstk.pamobmi.R;
+import s15666.pjwstk.pamobmi.benedictharris.EnergyExpenditure;
 import s15666.pjwstk.pamobmi.benedictharris.Gender;
 
 public class CaloriesFragment extends Fragment {
@@ -50,6 +51,7 @@ public class CaloriesFragment extends Fragment {
     private void init() {
         initGenderSwitch();
         initAgeField();
+        initEnergyUsageSeekBar();
     }
 
     private void initGenderSwitch() {
@@ -87,6 +89,27 @@ public class CaloriesFragment extends Fragment {
         });
     }
 
+    private void initEnergyUsageSeekBar() {
+        energyUsageSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                EnergyExpenditure e = null;
+                try {
+                    e = EnergyExpenditure.fromNumber(progress);
+                    model.setEnergyExpenditure(e);
+                } catch (EnergyExpenditure.NoSuchEnergyExpenditureException ex) {
+                    // TODO clear calories result
+                } finally {
+                    model.setEnergyExpenditure(e);
+                }
+            }
 
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) { }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) { }
+        });
+    }
 
 }
