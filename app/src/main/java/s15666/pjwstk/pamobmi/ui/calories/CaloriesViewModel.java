@@ -43,6 +43,7 @@ public class CaloriesViewModel extends ViewModel {
 
     void setEnergyExpenditure(EnergyExpenditure e) {
         energyExpenditure.setValue(e);
+        checkValid();
         Boolean isValid = e != null;
         if(isValid != this.isValid.getValue()) {
             this.isValid.setValue(isValid);

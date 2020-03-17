@@ -101,7 +101,7 @@ public class CaloriesFragment extends Fragment {
                 try {
                     age = Integer.valueOf(s.toString());
                 } catch (NumberFormatException e) {
-                    // TODO clear calories result
+                   result.setText("");
                 } finally {
                     caloriesViewModel.setAge(age);
                     updateResult();
@@ -131,7 +131,8 @@ public class CaloriesFragment extends Fragment {
             e = EnergyExpenditure.fromNumber(progress);
             updateEnergyUsageDescriptor(e.toString());
         } catch (EnergyExpenditure.NoSuchEnergyExpenditureException ex) {
-            // TODO clear calories result
+            result.setText("");
+            energyUsageDescription.setText("");
         } finally {
             caloriesViewModel.setEnergyExpenditure(e);
             updateResult();
