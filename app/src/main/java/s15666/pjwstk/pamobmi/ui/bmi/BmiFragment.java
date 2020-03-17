@@ -64,13 +64,6 @@ public class BmiFragment extends Fragment {
         weightField.addTextChangedListener(paramWatcher);
         heightField.addTextChangedListener(paramWatcher);
 
-        Boolean isMetric = model.isMetric().getValue();
-        if(isMetric == null || !isMetric) {
-            metricSwitch.setChecked(false);
-        } else {
-            metricSwitch.setChecked(true);
-        }
-
         metricSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if(isChecked) {
                 metricSwitch.setText(metricSwitch.getTextOn());
@@ -81,9 +74,16 @@ public class BmiFragment extends Fragment {
             }
         });
 
-        setNumeral(true);
-        metricSwitch.setChecked(true);
-        metricSwitch.setText(metricSwitch.getTextOn());
+        Boolean isMetric = model.isMetric().getValue();
+        if(isMetric == null || !isMetric) {
+            metricSwitch.setChecked(false);
+            metricSwitch.setText(metricSwitch.getTextOff());
+            setNumeral(false);
+        } else {
+            metricSwitch.setChecked(true);
+            metricSwitch.setText(metricSwitch.getTextOn());
+            setNumeral(true);
+        }
     }
 
     private void setNumeral(boolean useMetric) {
