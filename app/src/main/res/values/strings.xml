@@ -23,6 +23,19 @@
     <string name="calories_result_title">Calculated daily energy usage:</string>
     <string name="calories_result">%d kilo calories</string>
 
-    <string name="title_activity_temp_bottom_nav">TempBottomNavActivity</string>
     <string name="food_title">Food</string>
+    <string name="food_header_corona">What to eat during coronavirus times?</string>
+    <string name="food_info_corona">There is no special food that will protect you from
+    getting infected - however you can avoid sabotaging your immune system by avoiding alcohol
+        and junk food. \n\n
+    Abstain from smoking - it seems that COVID-19 infection affects lungs.</string>
+    <string name="food_header">What to eat in general?</string>
+    <string name="food_info">Try to focus on eating healthy food that is not energy dense.</string>
+    <string name="food_underweight">You are underweight - you might want to eat a little bit more
+         that you require to keep stable weight.</string>
+    <string name="food_normalweight">Your weight is normal - keep it up!</string>
+    <string name="food_overweight">You are overweight - you might want to eat a little bit less
+         than you require and add some more exercise to your daily schedule.</string>
+    <string name="food_obese">You are obese - please consult a health professional.</string>
+    <string name="title_activity_temp_bottom_nav">TempBottomNavActivity</string>
 </resources>
