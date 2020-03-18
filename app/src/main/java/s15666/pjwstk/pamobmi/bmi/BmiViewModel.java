@@ -3,12 +3,15 @@ package s15666.pjwstk.pamobmi.bmi;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import s15666.pjwstk.pamobmi.ui.bmi.BmiCategory;
+
 public class BmiViewModel extends ViewModel {
 
     private final MutableLiveData<Double> weight = new MutableLiveData<>();
     private final MutableLiveData<Double> height = new MutableLiveData<>();
     private final MutableLiveData<Boolean> isMetric = new MutableLiveData<>();
     private final MutableLiveData<Boolean> isValid = new MutableLiveData<>();
+    private final MutableLiveData<BmiCategory> bmi = new MutableLiveData<>();
 
     public BmiViewModel() {
         isMetric.setValue(Boolean.TRUE);
@@ -56,4 +59,11 @@ public class BmiViewModel extends ViewModel {
         return isValid;
     }
 
+    public MutableLiveData<BmiCategory> getBmiCategory() {
+        return bmi;
+    }
+
+    public void setBmiCategory(BmiCategory category) {
+        bmi.setValue(category);
+    }
 }

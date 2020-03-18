@@ -58,7 +58,7 @@ public class BmiFragment extends Fragment {
     }
 
     private void init() {
-        BmiResultUpdater resultUpdater = new BmiResultUpdater(view, bmiResultField, bmiCategoryField);
+        BmiResultUpdater resultUpdater = new BmiResultUpdater(view, model, bmiResultField, bmiCategoryField);
         paramWatcher = new BmiParamWatcher(model, weightField, heightField, resultUpdater, new MetricBmiCalculator());
 
         weightField.addTextChangedListener(paramWatcher);

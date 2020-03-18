@@ -1,6 +1,6 @@
 package s15666.pjwstk.pamobmi.ui.bmi;
 
-enum BmiCategory {
+public enum BmiCategory {
 
     UNDERWEIGHT("Underweight", 18.5),
     NORMAL("Normal weight", 24.9),
