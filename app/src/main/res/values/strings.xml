@@ -38,4 +38,7 @@
          than you require and add some more exercise to your daily schedule.</string>
     <string name="food_obese">You are obese - please consult a health professional.</string>
     <string name="title_activity_temp_bottom_nav">TempBottomNavActivity</string>
+
+    <string name="covid19_title">COVID-19 Graph</string>
+
 </resources>

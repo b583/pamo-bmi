@@ -22,4 +22,10 @@
         android:name="s15666.pjwstk.pamobmi.ui.food.FoodFragment"
         android:label="@string/food_title"
         tools:layout="@layout/fragment_food" />
+
+    <fragment
+        android:id="@+id/navigation_covid19"
+        android:name="s15666.pjwstk.pamobmi.ui.covid19.Covid19Fragment"
+        android:label="@string/covid19_title"
+        tools:layout="@layout/fragment_covid19" />
 </navigation>

@@ -16,4 +16,9 @@
         android:icon="@drawable/ic_restaurant_menu_black_24dp"
         android:title="@string/food_title" />
 
+    <item
+        android:id="@+id/navigation_covid19"
+        android:icon="@drawable/ic_warning_black_24dp"
+        android:title="@string/covid19_title"/>
+
 </menu>
