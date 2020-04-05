@@ -144,7 +144,7 @@ public class CaloriesFragment extends Fragment {
     }
 
     private void updateResult() {
-        if(caloriesViewModel.isValid() == null || bmiViewModel.isValid() == null) {
+        if(caloriesViewModel.isValid() == null) {
             return;
         }
 
