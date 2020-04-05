@@ -38,7 +38,7 @@ public class WelcomeFragment extends Fragment {
             goToNextPage();
         });
 
-        model.isValid().observe(this, aBoolean -> doneButton.setEnabled(aBoolean));
+        model.isValid().observe(getViewLifecycleOwner(), aBoolean -> doneButton.setEnabled(aBoolean));
     }
 
     private void goToNextPage() {
