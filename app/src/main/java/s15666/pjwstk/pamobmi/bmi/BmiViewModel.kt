@@ -8,8 +8,8 @@ class BmiViewModel : ViewModel() {
     val weight = MutableLiveData<Double?>()
     val height = MutableLiveData<Double?>()
     val isMetric = MutableLiveData<Boolean>()
-    val isValid = MutableLiveData<Boolean>()
     val bmiCategory = MutableLiveData<BmiCategory?>()
+    val isValid = MutableLiveData<Boolean>()
 
     init {
         isMetric.value = java.lang.Boolean.TRUE
